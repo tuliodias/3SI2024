@@ -9,6 +9,6 @@ package sintaxe;
  *
  * @author tulio
  */
-public class Novo {
+public class Operacoes {
     
 }
