@@ -12,9 +12,10 @@ package banco;
 public class Conta {
 
     private int numero;  // atributos ou variáveis de instância
-    private String cliente;
     private double saldo;
     private double limite;
+    
+    Cliente objCliente = new Cliente() ;
 
     public int getNumero() {
         return numero;
@@ -24,17 +25,10 @@ public class Conta {
         this.numero = numero;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-
-        this.cliente = cliente;
-    }
+    
 
     public double getSaldo() {
-        return saldo;
+        return saldo + limite;
     }
 
     public double getLimite() {
@@ -45,12 +39,27 @@ public class Conta {
         this.limite = limite;
     }
 
-    public void saca(double quantidade) { //método
-        this.saldo = this.saldo - quantidade;
+    public boolean saca(double quantidade) { //método
+        if (this.getSaldo() >= quantidade) {
+            this.saldo = this.saldo - quantidade;
+            System.out.println("Saque realizado com sucesso!");
+            return true;
+        } else {
+            System.out.println("Saldo insuficiente: " + this.getSaldo());
+            return false;
+        }
     }
 
     public void deposita(double quantidade) { //método
         this.saldo = this.saldo + quantidade;
+    }
+
+    public void transfere(Conta destino, double quantidade) {
+        if (this.saca(quantidade)) {
+            destino.deposita(quantidade);
+        } else {
+            System.out.println("Transferência não realizada!");
+        }
     }
 
 }
