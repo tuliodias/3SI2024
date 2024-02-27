@@ -29,15 +29,13 @@ public class Conta {
     }
 
     public void setCliente(String cliente) {
-        
+
         this.cliente = cliente;
     }
 
     public double getSaldo() {
         return saldo;
     }
-
-    
 
     public double getLimite() {
         return limite;
@@ -47,10 +45,10 @@ public class Conta {
         this.limite = limite;
     }
 
-    
-        public void saca(double quantidade) { //método
+    public void saca(double quantidade) { //método
         this.saldo = this.saldo - quantidade;
     }
+
     public void deposita(double quantidade) { //método
         this.saldo = this.saldo + quantidade;
     }
