@@ -14,8 +14,36 @@ public class Conta {
     private int numero;  // atributos ou variáveis de instância
     private double saldo;
     private double limite;
+    private static  int totalDeContas;
+    Cliente objCliente = new Cliente();
+    private int identificador;
+
+     
+
+    Conta() {
+        Conta.totalDeContas = Conta.totalDeContas + 1;
+        identificador = Conta.totalDeContas;
+        System.out.println("Construindo uma conta!");
+    }
+
+    Conta(double saldo) {
+        this(); // chama o contrutor padrão
+        this.saldo = saldo;
+    }
+
+    Conta(double saldo, double limite, int numero) {
+        this(saldo); // executa o construtor acima
+        this.limite = limite;
+        this.numero = numero;
+    }
     
-    Cliente objCliente = new Cliente() ;
+     public int getIdentificador() {
+        return identificador;
+    }
+
+    public static int getTotalDeContas() {
+        return Conta.totalDeContas;
+    }
 
     public int getNumero() {
         return numero;
@@ -24,8 +52,6 @@ public class Conta {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
-    
 
     public double getSaldo() {
         return saldo + limite;
