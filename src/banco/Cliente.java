@@ -11,7 +11,7 @@ package banco;
  */
 public class Cliente {
     
-    private String nome, endereco, dataNascimento;
+    private  String nome, endereco, dataNascimento;
 
     public String getNome() {
         return nome;
