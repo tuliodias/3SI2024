@@ -22,6 +22,7 @@ public class Gerente extends Funcionario {
     }
 
     public boolean autentica(int senha) {
+        
         if (this.senha == senha) {
             System.out.println("Acesso Permitido!");
             return true;
