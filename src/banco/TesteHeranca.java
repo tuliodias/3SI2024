@@ -10,18 +10,16 @@ package banco;
  * @author tulio
  */
 public class TesteHeranca {
-    public static void main(String[] args) {
-        Funcionario objFuncionario = new Funcionario("Pedro", "0008", 1000);
-        Gerente objGerente = new Gerente("João", "098798", 1000);
-        Diretor objDiretor = new Diretor("Maria", "00987988", 30000);
     
-        System.out.println("Nome Gerente: "+objGerente.getNome());
-       
-        System.out.println("Nome Funcionario: "+objFuncionario.getNome());
-        System.out.println("Nome Diretor: "+objDiretor.getNome());
+    public static void main(String[] args) {
+        //Funcionario objFuncionario = new Funcionario("Pedro");
+        Funcionario objGerente = new Gerente("João");
+        objGerente.setSalario(10000);
+        Funcionario objDiretor = new Diretor("Maria");
+        objDiretor.setSalario(10000);
+        objGerente.mostra();
+        objDiretor.mostra();
         
-  System.out.println("Bonificação do funcionario: "+objFuncionario.getBonificacao());
-  System.out.println("Bonificação do gerente: "+objGerente.getBonificacao());
-    }
+        }
     
 }

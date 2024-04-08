@@ -10,15 +10,17 @@ package banco;
  * @author tulio
  */
 public class Diretor extends Funcionario{
-    
-    public Diretor(String nome, String cpf, double salario) {
-        super(nome, cpf, salario);
+
+    public Diretor(String nome) {
+        super(nome);
     }
+    
+   
     
      @Override
      public double getBonificacao() { // reescrita de método
          
-        return super.getBonificacao() +2000;
+        return super.getSalario() * 0.10;
     }
     
    

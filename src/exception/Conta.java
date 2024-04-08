@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package banco;
+package exception;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,14 +14,12 @@ package banco;
  */
 public class Conta {
 
-private int numero;  // atributos ou variáveis de instância
+    private int numero;  // atributos ou variáveis de instância
     private double saldo;
     private double limite;
-    private static  int totalDeContas;
-    Cliente objCliente = new Cliente();
+    private static int totalDeContas;
+   
     private int identificador;
-
-     
 
     Conta() {
         Conta.totalDeContas = Conta.totalDeContas + 1;
@@ -37,8 +37,8 @@ private int numero;  // atributos ou variáveis de instância
         this.limite = limite;
         this.numero = numero;
     }
-    
-     public int getIdentificador() {
+
+    public int getIdentificador() {
         return identificador;
     }
 
@@ -54,7 +54,6 @@ private int numero;  // atributos ou variáveis de instância
         this.numero = numero;
     }
 
-
     public double getSaldo() {
         return saldo + limite;
     }
@@ -67,14 +66,12 @@ private int numero;  // atributos ou variáveis de instância
         this.limite = limite;
     }
 
-    public boolean saca(double quantidade) { //método
+    public void saca(double quantidade) throws Exception { //método
         if (this.getSaldo() >= quantidade) {
             this.saldo = this.saldo - quantidade;
-            System.out.println("Saque realizado com sucesso!");
-            return true;
+            System.out.println("Transferência realizada");
         } else {
-            System.out.println("Saldo insuficiente: " + this.getSaldo());
-            return false;
+            throw new Exception();
         }
     }
 
@@ -83,11 +80,14 @@ private int numero;  // atributos ou variáveis de instância
     }
 
     public void transfere(Conta destino, double quantidade) {
-        if (this.saca(quantidade)) {
+        try {
+            this.saca(quantidade);
             destino.deposita(quantidade);
-        } else {
-            System.out.println("Transferência não realizada!");
+        } catch (Exception ex) {
+            System.out.println("Transferência não realizada");
         }
+       
+        
     }
 
 }

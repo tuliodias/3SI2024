@@ -17,9 +17,11 @@ public class Gerente extends Funcionario {
     private int senha;
     private int numeroDeFuncionariosGerenciados;
 
-    public Gerente(String nome, String cpf, double salario) {
-        super(nome, cpf, salario);
+    public Gerente(String nome) {
+        super(nome);
     }
+
+    
 
     public boolean autentica(int senha) {
         
@@ -35,7 +37,7 @@ public class Gerente extends Funcionario {
     @Override
      public double getBonificacao() { // reescrita de método
          
-        return super.getBonificacao() +1000;
+          return super.getSalario() * 0.20;
     }
 
 }
